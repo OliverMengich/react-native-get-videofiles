@@ -2,20 +2,27 @@
 
 A module in react native for reading video files for android devices
 
+``*important*``: Currently only suppoerted for android devices. If you want support for IOS or windows feel free to contribute to the repository.
 ## Installation
 
 ```sh
 npm install react-native-get-videofiles
 ```
+## Allow Permissions
+go to the ``android/app/src/main/AndroidManifest.xml`` then append the following permmmision
+```xml
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
+```
 
 ## Usage
 
 ```js
-import { multiply } from 'react-native-get-videofiles';
+import { getAll } from 'react-native-get-videofiles';
 
 // ...
 
-const result = await multiply(3, 7);
+const result = await getAll({})
 ```
 
 ## Contributing

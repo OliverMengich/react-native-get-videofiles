@@ -16,7 +16,24 @@ const GetVideofiles = NativeModules.GetVideofiles
         },
       }
     );
-
-export function multiply(a: number, b: number): Promise<number> {
-  return GetVideofiles.multiply(a, b);
+interface Options{
+    limit:number
 }
+interface VideoFile{
+    readonly id:number,
+    displayName:string,
+    duration:number,
+    size:number,
+    path:string,
+    resolution:string,
+}
+const RNGetVideofiles = {
+    async getAll(options:Options):Promise<VideoFile[]>{
+        if(Platform.OS ==='android'){
+            return await GetVideofiles.getAll(options);
+        }
+        throw new Error('ios not support');
+    }
+};
+
+export default RNGetVideofiles;

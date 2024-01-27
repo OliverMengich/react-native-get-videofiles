@@ -19,7 +19,7 @@ const GetVideofiles = NativeModules.GetVideofiles
 interface Options{
     limit:number
 }
-interface VideoFile{
+export interface VideoFile{
     readonly id:number,
     displayName:string,
     duration:number,

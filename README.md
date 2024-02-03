@@ -18,11 +18,35 @@ go to the ``android/app/src/main/AndroidManifest.xml`` then append the following
 ## Usage
 
 ```js
-import { getAll } from 'react-native-get-videofiles';
-
+import RNVideoFiles from 'react-native-get-videofiles';
+import type {VideoFile} from 'react-native-get-videofiles';
+import {useState} from 'react';
+import {Flatlist,View,Text} from 'react-native';
 // ...
 
-const result = await getAll({})
+const App = ()=>{
+    const [videos,setVideos] = useState<VideoFile[]>([]);
+    useEffect(()=>{
+        const fc=async ()=>{
+            const result = await RNVideoFiles.getAll({limit:1000});
+            setVideos(result);
+        }
+        fc();
+    },[])
+    return(
+        <View style={{flex:1}}>
+            <Flatlist
+                data={videos}
+                renderItem={({item})=>(
+                    <View>
+                        <Text>{item.displayName}</Text>
+                    </View>
+                )}
+            />
+        </View>
+    )
+}
+export default App;
 ```
 
 ## Contributing

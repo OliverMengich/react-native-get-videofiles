@@ -2,7 +2,7 @@
   "name": "react-native-get-videofiles",
   "packageManager": "yarn@3.6.1",
   "description": "A module in react native for reading video files for android devices",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "src/index.tsx",
   "directories": {
     "example": "example"

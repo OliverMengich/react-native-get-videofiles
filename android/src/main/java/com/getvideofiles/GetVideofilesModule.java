@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 
 import android.content.ContentResolver;
 import com.facebook.react.bridge.Promise;
+import android.content.pm.PackageManager;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;

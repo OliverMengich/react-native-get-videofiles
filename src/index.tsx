@@ -30,7 +30,9 @@ export interface VideoFile{
 const RNGetVideofiles = {
     async getAll(options:Options):Promise<VideoFile[]>{
         if(Platform.OS ==='android'){
-            return await GetVideofiles.getAll(options);
+            const videos = await GetVideofiles.getAll(options);
+            const returns = await JSON.parse(videos);
+            return returns;
         }
         throw new Error('ios not support');
     }

@@ -1,19 +1,16 @@
 import * as React from 'react';
 
 import { StyleSheet, View, FlatList, Text } from 'react-native';
-import { multiply, getAll, VideoFile } from 'react-native-get-videofiles';
+import {  getAll, VideoFile } from 'react-native-get-videofiles';
 
-export default function App() {
-  const [result, setResult] = React.useState<number | undefined>();
+export default function App() {;
   const [videos,setVideos] = React.useState<VideoFile[]>([]);
   React.useEffect(() => {
-    multiply(3, 7).then(setResult);
     getAll().then(setVideos)
   }, []);
 
   return (
     <View style={styles.container}>
-      <Text>Result: {result}</Text>
       <FlatList
         data={videos}
         renderItem={({item})=>(
